@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Building Layout Tool</title>
+
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+<header>
+Building Layout Tool
+</header>
+
+<div class="container">
+
+<!-- TOOL SELECTOR -->
+
+<div class="card">
+
+<h2>Tool</h2>
+
+<select id="toolSelector">
+<option value="sidewall">Sidewall Layout</option>
+<option value="endwall">Endwall (Gable)</option>
+<option value="roof">Roof Layout</option>
+</select>
+
+</div>
+
+<!-- INPUTS -->
+
+<div class="card">
+
+<h2>Inputs</h2>
+
+<label>Wall Length (inches)</label>
+<input id="wallLength" type="number" value="240">
+
+<label>Rib Spacing</label>
+<input id="ribSpacing" type="number" value="12">
+
+<label>Panel Coverage</label>
+<input id="panelCoverage" type="number" value="36">
+
+<label>Start Offset</label>
+<input id="offset" type="number" value="0">
+
+<br>
+
+<button id="renderBtn">Generate Layout</button>
+
+</div>
+
+<!-- SVG -->
+
+<div class="card">
+
+<h2>Layout</h2>
+
+<div id="svgContainer">
+<svg id="wallSvg" width="100%" height="260"></svg>
+</div>
+
+</div>
+
+<!-- TABLE -->
+
+<div class="card">
+
+<h2>Rib Table</h2>
+
+<div id="ribTable"></div>
+
+</div>
+
+</div>
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>
