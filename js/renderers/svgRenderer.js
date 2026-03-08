@@ -1,4 +1,4 @@
-import { formatToField } from "../utils/formatter.js";
+import { formatToField } from "./utils/formatter.js";
 
 export function renderSvg(model) {
 
