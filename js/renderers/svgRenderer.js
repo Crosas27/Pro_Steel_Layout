@@ -14,6 +14,7 @@ export function renderSvg(model) {
   const height = 260;
 
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.setAttribute("shape-rendering", "crispEdges");
 
   const scale = wallLength > 0 ? width / wallLength : 1;
 
