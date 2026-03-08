@@ -8,30 +8,40 @@ export function renderRibTable(model) {
 
   container.innerHTML = "";
 
-  const table = document.createElement("table");
+  const ribs = model.ribs;
+  const panels = model.panels;
+  const wallLength = model.wallLength;
 
-  const header = document.createElement("tr");
+  const panelCount = panels.length;
 
-  header.innerHTML = `
-  <th>Rib</th>
-  <th>Position</th>
+  const summary = document.createElement("div");
+
+  summary.innerHTML = `
+    <h3>Layout Summary</h3>
+
+    <p><strong>Total Panels:</strong> ${panelCount}</p>
+    <p><strong>Wall Length:</strong> ${formatToField(wallLength)}</p>
+
+    <h4>Rib Layout</h4>
   `;
 
-  table.appendChild(header);
+  container.appendChild(summary);
 
-  model.ribs.forEach(rib => {
+  const list = document.createElement("ul");
 
-    const row = document.createElement("tr");
+  ribs.forEach((rib, index) => {
 
-    row.innerHTML = `
-    <td>R${rib.index}</td>
-    <td>${formatToField(rib.position)}</td>
-    `;
+    const li = document.createElement("li");
 
-    table.appendChild(row);
+    const inches = Math.round(rib.position);
+
+    li.textContent =
+      `Rib ${index + 1} — ${formatToField(rib.position)} (${inches}")`;
+
+    list.appendChild(li);
 
   });
 
-  container.appendChild(table);
+  container.appendChild(list);
 
 }
