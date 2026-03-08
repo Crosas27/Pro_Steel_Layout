@@ -34,19 +34,32 @@ export function renderSvg(model) {
 
   ribs.forEach((rib) => {
 
-    const x = rib.position * scale;
+  const x = rib.position * scale;
 
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
 
-    line.setAttribute("x1", x);
-    line.setAttribute("x2", x);
-    line.setAttribute("y1", wallTop);
-    line.setAttribute("y2", wallTop + wallHeight);
+  line.setAttribute("x1", x);
+  line.setAttribute("x2", x);
+  line.setAttribute("y1", wallTop);
+  line.setAttribute("y2", wallTop + wallHeight);
 
-    line.setAttribute("class", "rib-line");
+  line.setAttribute("class", "rib-line");
 
-    svg.appendChild(line);
+  svg.appendChild(line);
 
-  });
 
-}
+  // RIB LABEL
+
+  const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+
+  label.setAttribute("x", x);
+  label.setAttribute("y", wallTop + wallHeight + 16);
+
+  label.setAttribute("text-anchor", "middle");
+  label.setAttribute("font-size", "10");
+
+  label.textContent = formatToField(rib.position);
+
+  svg.appendChild(label);
+
+});
