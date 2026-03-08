@@ -3,45 +3,56 @@ import { formatToField } from "../utils/formatter.js";
 export function renderRibTable(model) {
 
   const container = document.getElementById("ribTable");
-
   if (!container) return;
 
   container.innerHTML = "";
 
-  const ribs = model.ribs;
-  const panels = model.panels;
-  const wallLength = model.wallLength;
+  const ribs = model.ribs || [];
+  const panels = model.panels || [];
+  const wallLength = model.wallLength || 0;
 
   const panelCount = panels.length;
 
-  const summary = document.createElement("div");
+  // Title
+  const title = document.createElement("h3");
+  title.textContent = "Layout Summary";
+  container.appendChild(title);
 
-  summary.innerHTML = `
-    <h3>Layout Summary</h3>
+  // Panel count
+  const panelText = document.createElement("p");
+  panelText.innerHTML = "<strong>Total Panels:</strong> " + panelCount;
+  container.appendChild(panelText);
 
-    <p><strong>Total Panels:</strong> ${panelCount}</p>
-    <p><strong>Wall Length:</strong> ${formatToField(wallLength)}</p>
+  // Wall length
+  const wallText = document.createElement("p");
+  wallText.innerHTML = "<strong>Wall Length:</strong> " + formatToField(wallLength);
+  container.appendChild(wallText);
 
-    <h4>Rib Layout</h4>
-  `;
-
-  container.appendChild(summary);
+  // Rib section title
+  const ribTitle = document.createElement("h4");
+  ribTitle.textContent = "Rib Layout";
+  container.appendChild(ribTitle);
 
   const list = document.createElement("ul");
 
-  ribs.forEach((rib, index) => {
+  ribs.forEach(function(rib, index) {
 
     const li = document.createElement("li");
 
     const inches = Math.round(rib.position);
 
     li.textContent =
-      `Rib ${index + 1} — ${formatToField(rib.position)} (${inches}")`;
+      "Rib " +
+      (index + 1) +
+      " — " +
+      formatToField(rib.position) +
+      " (" +
+      inches +
+      '")';
 
     list.appendChild(li);
 
   });
 
   container.appendChild(list);
-
 }
