@@ -62,4 +62,6 @@ export function renderSvg(model) {
 
   svg.appendChild(label);
 
+  });
+
 }
