@@ -41,13 +41,14 @@ header {
 }
 
 .card {
-  background: #161b22;
-  border-radius: 6px;
-  padding: 20px;
-  margin-bottom: 25px;
-  border: 1px solid #30363d;
-}
 
+background: #161b22;
+border-radius: 6px;
+padding: 22px;
+margin-bottom: 25px;
+border: 1px solid #30363d;
+box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
 /* -------------------------
    Titles
 ------------------------- */
@@ -69,9 +70,10 @@ label {
   color: #c9d1d9;
 }
 
-input, select {
+input,
+select {
 
-  width: 140px;
+  width: 150px;
 
   padding: 8px;
 
@@ -84,12 +86,18 @@ input, select {
   color: #e6edf3;
 
   margin-bottom: 12px;
+
+  transition: border-color 0.2s;
 }
 
 input:focus,
 select:focus {
+
   outline: none;
+
   border-color: #58a6ff;
+
+  box-shadow: 0 0 0 1px #58a6ff;
 }
 
 /* -------------------------
@@ -127,9 +135,11 @@ button:hover {
 
   background: #0d1117;
 
-  padding: 10px;
+  padding: 14px;
 
-  border-radius: 4px;
+  border-radius: 6px;
+
+  overflow-x: auto;
 }
 
 /* -------------------------
@@ -151,16 +161,22 @@ th {
 
   text-align: left;
 
-  padding: 8px;
+  padding: 10px;
 
   color: #9ecbff;
+
+  border-bottom: 1px solid #30363d;
 }
 
 td {
 
   padding: 8px;
 
-  border-top: 1px solid #30363d;
+  border-bottom: 1px solid #30363d;
+}
+
+tr:hover {
+  background: rgba(88,166,255,0.08);
 }
 
 /* -------------------------
@@ -168,17 +184,17 @@ td {
 ------------------------- */
 
 .wall-outline {
-  stroke: #90a4ae;
+  stroke: #b0bec5;
   stroke-width: 2;
 }
 
 .rib-line {
-  stroke: #42a5f5;
+  stroke: #4fc3f7;
   stroke-width: 2;
 }
 
 .panel-seam {
-  stroke: #607d8b;
+  stroke: #90a4ae;
   stroke-width: 4;
 }
 
