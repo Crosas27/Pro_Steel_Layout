@@ -13,22 +13,18 @@ export function renderRibTable(model) {
 
   const panelCount = panels.length;
 
-  // Title
   const title = document.createElement("h3");
   title.textContent = "Layout Summary";
   container.appendChild(title);
 
-  // Panel count
-  const panelText = document.createElement("p");
-  panelText.innerHTML = "<strong>Total Panels:</strong> " + panelCount;
-  container.appendChild(panelText);
+  const panelLine = document.createElement("p");
+  panelLine.textContent = "Total Panels: " + panelCount;
+  container.appendChild(panelLine);
 
-  // Wall length
-  const wallText = document.createElement("p");
-  wallText.innerHTML = "<strong>Wall Length:</strong> " + formatToField(wallLength);
-  container.appendChild(wallText);
+  const wallLine = document.createElement("p");
+  wallLine.textContent = "Wall Length: " + formatToField(wallLength);
+  container.appendChild(wallLine);
 
-  // Rib section title
   const ribTitle = document.createElement("h4");
   ribTitle.textContent = "Rib Layout";
   container.appendChild(ribTitle);
@@ -55,4 +51,5 @@ export function renderRibTable(model) {
   });
 
   container.appendChild(list);
+
 }
